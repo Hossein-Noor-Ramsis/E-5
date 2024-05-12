@@ -31,12 +31,16 @@ function createNewItem(e) {
 
   // validate the input
   e.preventDefault();
-  if (itemInput.value === "") {
-    inputInvalid.innerText = "Please add an item";
-    return;
-  } else {
-    inputInvalid.innerText = "";
+  function validateInput() {
+    if (itemInput.value === "") {
+      inputInvalid.innerText = "Please add an item";
+      return false;
+    } else {
+      inputInvalid.innerText = "";
+      return true;
+    }
   }
+  validateInput();
 
   // create new item
   function createNewItem() {
@@ -178,7 +182,6 @@ function editItem(e) {
 
       itemForm.classList = "create-item mb-4 update-item";
       formButton.style.backgroundColor = "#0f6cff";
-      formButton.className = "btn btn-dark px-3 py-1 border-0";
       buttonIcon.className = "bi bi-pencil-square";
       buttonText.innerText = "Update Item";
     } else {
@@ -204,10 +207,22 @@ function updateItem(e) {
 
     for (let i = 0; i < items.length; i++) {
       updateList.push(items[i].textContent);
-      console.log(items[i].textContent);
     }
 
     localStorage.setItem("itemsKey", JSON.stringify(updateList));
+  } else {
+    return;
   }
+
+  function normalizeButton() {
+    const buttonIcon = document.getElementById("button-icon");
+    const buttonText = document.getElementById("button-text");
+    
+    itemForm.classList = "create-item mb-4";
+    formButton.style.backgroundColor = "#212529";
+    buttonIcon.className = "bi bi bi-plus";
+    buttonText.innerText = "Add Item";
+  }
+  normalizeButton();
 }
 itemForm.addEventListener("submit", updateItem);
