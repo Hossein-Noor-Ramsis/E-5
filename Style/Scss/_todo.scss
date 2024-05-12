@@ -27,5 +27,10 @@ main .todo {
   .disabled {
     opacity: 0.6;
   }
+
+  #item-list {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 /* ===== end of section ===== */

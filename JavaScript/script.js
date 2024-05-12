@@ -29,18 +29,16 @@ function createNewItem(e) {
   const newItem = document.createElement("li");
   const newItemIcon = document.createElement("i");
 
-  // validate the input
   e.preventDefault();
+  // validate the input
   function validateInput() {
     if (itemInput.value === "") {
       inputInvalid.innerText = "Please add an item";
-      return false;
+      return;
     } else {
       inputInvalid.innerText = "";
-      return true;
     }
   }
-  validateInput();
 
   // create new item
   function createNewItem() {

@@ -308,6 +308,10 @@ main .todo #filter, main .todo #list-cleaner {
 main .todo .disabled {
   opacity: 0.6;
 }
+main .todo #item-list {
+  display: flex;
+  flex-direction: column-reverse;
+}
 
 /* ===== end of section ===== */
 /* ===== start of variable ===== */
