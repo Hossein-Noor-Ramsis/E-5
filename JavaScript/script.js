@@ -39,6 +39,7 @@ function createNewItem(e) {
       inputInvalid.innerText = "";
     }
   }
+  validateInput();
 
   // create new item
   function createNewItem() {
