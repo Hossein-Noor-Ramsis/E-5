@@ -31,15 +31,12 @@ function createNewItem(e) {
 
   e.preventDefault();
   // validate the input
-  function validateInput() {
-    if (itemInput.value === "") {
-      inputInvalid.innerText = "Please add an item";
-      return;
-    } else {
-      inputInvalid.innerText = "";
-    }
+  if (itemInput.value === "") {
+    inputInvalid.innerText = "Please add an item";
+    return;
+  } else {
+    inputInvalid.innerText = "";
   }
-  validateInput();
 
   // create new item
   function createNewItem() {
